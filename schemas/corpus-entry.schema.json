@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voices-foundation.local/schemas/corpus-entry.schema.json",
+  "title": "Voices Foundation Corpus Entry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "entry_id",
+    "speaker_id",
+    "language",
+    "consent_record_uri",
+    "recorded_at",
+    "restriction_tag"
+  ],
+  "properties": {
+    "entry_id": { "type": "string", "minLength": 1 },
+    "speaker_id": { "type": "string", "minLength": 1 },
+    "speaker_display_name": { "type": "string" },
+    "language": { "type": "string", "minLength": 1 },
+    "language_variant": { "type": "string" },
+    "consent_record_uri": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "restriction_tag": {
+      "type": "string",
+      "enum": ["open", "community", "family", "restricted", "withdrawn"]
+    },
+    "topic_keywords": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "default": []
+    },
+    "recordist": { "type": "string" },
+    "transcription_status": {
+      "type": "string",
+      "enum": ["none", "draft", "reviewed", "approved"]
+    },
+    "notes": { "type": "string" },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "audio_uri": { "type": "string" },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "duration_seconds": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voices-foundation.local/schemas/speaker.schema.json",
+  "title": "Voices Foundation Speaker",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "speaker_id",
+    "display_name",
+    "community",
+    "consent_record_uri",
+    "consent_uses"
+  ],
+  "properties": {
+    "speaker_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "community": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language_variants": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "default": []
+    },
+    "consent_record_uri": {
+      "type": "string",
+      "minLength": 1
+    },
+    "consent_uses": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["record", "transcribe", "train_lm", "single_voice", "compose_voice", "narration"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "withdrawn_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    }
+  }
+}

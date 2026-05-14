@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voices-foundation.local/schemas/corpus-manifest.schema.json",
+  "title": "Voices Foundation Corpus Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_id",
+    "community",
+    "language",
+    "created_at",
+    "data_license",
+    "entries"
+  ],
+  "properties": {
+    "manifest_id": { "type": "string", "minLength": 1 },
+    "community": { "type": "string", "minLength": 1 },
+    "language": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "data_license": { "type": "string", "minLength": 1 },
+    "language_authority_signature": { "type": "string" },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "./corpus-entry.schema.json" },
+      "default": []
+    }
+  }
+}

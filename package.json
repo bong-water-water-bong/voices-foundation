@@ -1,0 +1,14 @@
+{
+  "name": "voices-foundation",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Open-source local-first tooling for Indigenous language recording, consent, corpus validation, and teaching-model foundations.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node --test",
+    "check:js": "node --check bin/voices-validate.mjs && node --check src/corpus/validate.mjs && node --check src/corpus/restrictions.mjs && node --check apps/intake-web/src/intake-state.mjs && node --check apps/intake-web/src/app.mjs",
+    "validate:example": "node bin/voices-validate.mjs examples/demo-open-entry.json",
+    "serve:intake": "python3 -m http.server 8766 --bind 127.0.0.1 --directory apps/intake-web"
+  }
+}

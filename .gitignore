@@ -1,0 +1,34 @@
+# Local working data
+data/
+recordings/
+transcripts/
+exports/
+manifests/local/
+*.wav
+*.flac
+*.mp3
+*.m4a
+*.opus
+*.ogg
+*.webm
+
+# Model and training artifacts
+models/
+checkpoints/
+embeddings/
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Tooling
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+coverage/
+.cache/
+tmp/

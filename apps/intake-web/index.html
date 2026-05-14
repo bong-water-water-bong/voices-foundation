@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voices Foundation Intake</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <h1>Voices Foundation Intake</h1>
+          <p>Create consent-linked recording sidecars for Indigenous language preservation. The app runs locally; recordings and community data stay on the machine you control.</p>
+        </div>
+        <a class="docs-link" href="#principles">Principles</a>
+      </header>
+
+      <section class="workspace" aria-label="Recording and corpus intake workspace">
+        <form id="intake-form" class="panel">
+          <h2>Speaker</h2>
+          <label>
+            Speaker ID
+            <input name="speaker_id" autocomplete="off" placeholder="speaker_mary_001" required>
+          </label>
+          <label>
+            Display name or alias
+            <input name="display_name" autocomplete="off" placeholder="Mary J. or community-approved alias">
+          </label>
+
+          <h2>Session</h2>
+          <label>
+            Language
+            <input name="language" value="mikmaq" required>
+          </label>
+          <label>
+            Dialect / region
+            <input name="language_variant" placeholder="Mi'kma'ki / New Brunswick">
+          </label>
+          <label>
+            Consent record URI
+            <input name="consent_record_uri" placeholder="consent://speaker_mary_001/v1" required>
+          </label>
+          <label>
+            Recordist
+            <input name="recordist" placeholder="name of trusted recordist">
+          </label>
+
+          <h2>Segment</h2>
+          <label>
+            Restriction tag
+            <select name="restriction_tag" required>
+              <option value="">Choose before recording</option>
+              <option value="open">open</option>
+              <option value="community">community</option>
+              <option value="family">family</option>
+              <option value="restricted">restricted</option>
+              <option value="withdrawn">withdrawn</option>
+            </select>
+          </label>
+          <label>
+            Topic keywords
+            <input name="topic_keywords" placeholder="greetings, kinship, weather">
+          </label>
+          <label>
+            Transcription status
+            <select name="transcription_status">
+              <option value="none">none</option>
+              <option value="draft">draft</option>
+              <option value="reviewed">reviewed</option>
+              <option value="approved">approved</option>
+            </select>
+          </label>
+          <div class="recorder">
+            <button type="button" id="record-audio">Record local audio</button>
+            <button type="button" id="stop-audio" disabled>Stop</button>
+            <audio id="audio-preview" controls hidden></audio>
+          </div>
+          <label>
+            Audio URI
+            <input name="audio_uri" placeholder="recordings/speaker/session.wav">
+          </label>
+          <label>
+            SHA-256
+            <input name="sha256" placeholder="optional until file hashing is run">
+          </label>
+          <label>
+            Duration seconds
+            <input name="duration_seconds" inputmode="decimal" placeholder="0">
+          </label>
+          <label>
+            Notes
+            <textarea name="notes" rows="4" placeholder="Speaker-directed notes, restriction details, context"></textarea>
+          </label>
+        </form>
+
+        <aside class="panel output-panel">
+          <div class="status-row">
+            <strong id="validation-status" data-state="error">Waiting for input</strong>
+            <span id="trainable-status" data-state="blocked">Default training: blocked</span>
+          </div>
+          <textarea id="entry-output" aria-label="Corpus entry JSON output" spellcheck="false"></textarea>
+          <a id="download-entry" class="download" href="#" download="corpus-entry.json">Export corpus-entry JSON</a>
+        </aside>
+      </section>
+
+      <section id="principles" class="principles">
+        <h2>Default safeguards</h2>
+        <p>Consent and restriction tags are required before a segment can be considered valid. Only open, approved entries are marked trainable by the default validator. Community, family, restricted, and withdrawn entries are blocked from default training.</p>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.mjs"></script>
+  </body>
+</html>

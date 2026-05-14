@@ -1,0 +1,17 @@
+{
+  "entry_id": "entry_demo_open_001",
+  "speaker_id": "speaker_demo_001",
+  "language": "mikmaq",
+  "language_variant": "mi-kma-ki-nb-demo",
+  "consent_record_uri": "consent://speaker_demo_001/v1",
+  "recorded_at": "2026-05-13T20:00:00Z",
+  "restriction_tag": "open",
+  "topic_keywords": ["greeting", "demo"],
+  "recordist": "demo-recordist",
+  "transcription_status": "approved",
+  "media": {
+    "audio_uri": "recordings/demo/audio.wav",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "duration_seconds": 12.4
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voices-foundation.local/schemas/recording-session.schema.json",
+  "title": "Voices Foundation Recording Session",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "session_id",
+    "speaker_id",
+    "language",
+    "consent_record_uri",
+    "recorded_at",
+    "recordist"
+  ],
+  "properties": {
+    "session_id": { "type": "string", "minLength": 1 },
+    "speaker_id": { "type": "string", "minLength": 1 },
+    "language": { "type": "string", "minLength": 1 },
+    "language_variant": { "type": "string" },
+    "consent_record_uri": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "recordist": { "type": "string", "minLength": 1 },
+    "environment_notes": { "type": "string" },
+    "equipment": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "default": []
+    }
+  }
+}
