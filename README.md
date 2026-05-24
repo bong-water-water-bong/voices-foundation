@@ -1,5 +1,8 @@
 # voices-foundation
 
+**→ [Project Wiki](docs/wiki/README.md)** — architecture, decisions, gotchas, and agent onboarding.
+
+
 > Open-source framework for building large language models that preserve and teach Indigenous languages — starting with Mi'kmaq, designed to extend to any low-resource language community in the world.
 
 ## Why
